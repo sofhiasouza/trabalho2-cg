@@ -58,7 +58,7 @@ class Model:
     
 
     # Teclas para movimentação de objeto
-    obj = self.objects[8] # slender é o objeto que queremos movimentar
+    obj = self.objects[10] # luz exterior é o objeto que queremos movimentar
 
     if key == 265 and (action==1 or action==2): # tecla seta pra cima
         obj.angle += 2
@@ -128,11 +128,11 @@ class Model:
 
     # Atualiza os coeficientes de reflexão dos objetos de acordo com onde estão
     for obj in self.objects:
-        if obj.is_inside:
+        if obj.is_inside and obj.is_light == False:
             obj.ka = self.ka_inside
             obj.kd = self.kd_inside
             obj.ks = self.ks_inside
-        else:
+        elif obj.is_light == False:
             obj.ka = self.ka_outside
             obj.kd = self.kd_outside
             obj.ks = self.ks_outside

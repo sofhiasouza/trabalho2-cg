@@ -28,6 +28,12 @@ class Object:
         self.ks = 0.5
         self.ns = 0.5
 
+        if self.is_light:
+            self.ns = 1
+            self.ka = 1
+            self.kd = 1
+            self.ks = 1
+
 
     def load_model_from_file(self):
         """Loads a Wavefront OBJ file. """

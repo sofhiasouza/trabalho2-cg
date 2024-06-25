@@ -13,16 +13,18 @@ from shaders import create_shader_program
 
 # model_file_path, texture_file_path, texture_id, position, rotation, scale, textures, is_inside,  is_light, is_sky
 objects_arguments = [
-    ['../assets/ground_stone/ground1.obj', '../assets/ground_stone/stone.jpg', [0.0, -1.0, 0.0], [0.0, 0.0, 0.0, 1.0], [10.0, 10.0, 10.0], 1, False, False],
+    ['../assets/ground_stone/ground1.obj', '../assets/ground_stone/stone.jpg', [0.0, -1.0, 0.0], [0.0, 0.0, 0.0, 1.0], [10.0, 10.0, 10.0], 1, False, False, True],
     ['../assets/sky/sky.obj', '../assets/sky/animecloud.png', [0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 1.0], [0.75, 0.75, 0.75], 2, False, False, True],
-    ['../assets/ground_forest/ground2.obj', '../assets/ground_forest/grass.jpg', [0.0, -1.0, 0.0], [0.0, 0.0, 0.0, 1.0], [10.0, 10.0, 10.0], 3, False, False],
+    ['../assets/ground_forest/ground2.obj', '../assets/ground_forest/grass.jpg', [0.0, -1.0, 0.0], [0.0, 0.0, 0.0, 1.0], [10.0, 10.0, 10.0], 3, False, False, True],
     ['../assets/house/house.obj', '../assets/house/textures/Cottage_Clean_Base_Color.png',[-50.0, -3.0, -30.0], [90.0, -90.0, 1.0, 0.0], [5.0, 5.0, 5.0], 5, False, False],
     ['../assets/table/wood_table.obj', '../assets/table/wood_table.png', [-50.0, -0.5, -30.0], [-90.0, 1.0, 0.0, 0.0], [0.25, 0.25, 0.25], 7, True, False],
     ['../assets/chair/chair.obj', '../assets/chair/chair.png',[-50.0, 2.5, -26.0], [0.0, 0.0, 1.0, 0.0], [0.4, 0.4, 0.4], 8, True, False],
-    ['../assets/box/box.obj', '../assets/box/box.jpg', [-40.0, 0.0, -30.0], [-90.0, 1.0, 0.0, 0.0], [0.9, 0.9, 0.9], 9, True, True],
+    ['../assets/box/box.obj', '../assets/box/box.jpg', [-40.0, 0.0, -30.0], [-90.0, 1.0, 0.0, 0.0], [0.9, 0.9, 0.9], 9, True, False],
     ['../assets/raptor/raptor.obj', '../assets/raptor/raptor.jpg', [-10.0, -0.5, -30.0], [90.0, 1.0, 90.0, 0.0], [0.15, 0.15, 0.15], 10, False, False],
-    ['../assets/slenderman/slenderman.obj', '../assets/slenderman/slenderman.png', [10.0, -0.5, -30.0], [90.0, 1.0, 90.0, 0.0], [0.7, 0.7, 0.7], 11, False, True],
-    ['../assets/fence/fence.obj', '../assets/fence/fence.jpg', [0.0, -1.1, 0.0], [90.0, 0.0, 1.0, 0.0], [30.0, 30.0, 30.0], 4, False, False]]
+    ['../assets/slenderman/slenderman.obj', '../assets/slenderman/slenderman.png', [10.0, -0.5, -30.0], [90.0, 1.0, 90.0, 0.0], [0.7, 0.7, 0.7], 11, False, False],
+    ['../assets/fence/fence.obj', '../assets/fence/fence.jpg', [0.0, -1.1, 0.0], [90.0, 0.0, 1.0, 0.0], [30.0, 30.0, 30.0], 4, False, False],
+    ['../assets/luz/luz.obj', '../assets/luz/luz.png', [15.0, 0.0, -30.0], [90.0, 1.0, 90.0, 0.0], [0.3, 0.3, 0.3], 12, False, True],
+    ['../assets/luz/luz.obj', '../assets/luz/luz.png', [-55.0, 0.0, -30.0], [90.0, 1.0, 90.0, 0.0], [0.3, 0.3, 0.3], 12, True, True]]
 
 
 def main():
@@ -125,10 +127,10 @@ def main():
 
         # draw fence dividing spaces
         obj = objects[9]
-        for i in range(-400, -10, 10):
+        for i in range(-40, -10, 10):
             obj.t_z = i
             obj.draw(model.model, program)
-        for i in range(0, 400, 10):
+        for i in range(0, 40, 10):
             obj.t_z = i
             obj.draw(model.model, program)
 
